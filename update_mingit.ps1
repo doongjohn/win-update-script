@@ -11,7 +11,7 @@ $version = $(gh --repo=$repo release list --exclude-drafts | rg -m=1 'Latest' | 
 $asset = $(gh --repo=$repo release view $version | rg -o -m=1 'MinGit[\d\.\-]+64-bit.zip')
 
 Write-Output '[script] downloading: '$asset
-gh --repo=$repo release download "$version" -p="$asset"
+gh --repo=$repo release download "$version" --pattern="$asset"
 
 Write-Output '[script] extracting'
 Expand-Archive "$asset" .\ && Remove-Item -Force "$asset"
