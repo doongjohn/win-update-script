@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop" # stop script on the first error
 
-$location = "$env:USERPROFILE/apps/vscode/"
+$location = "$env:USERPROFILE\apps\vscode\"
 Set-Location $location
 
 Write-Output '[script] removing all files in '$location
@@ -12,6 +12,6 @@ Write-Output '[script] downloading: '$url
 Invoke-WebRequest -Uri "$url" -OutFile 'vscode.zip'
 
 Write-Output '[script] extracting'
-Expand-Archive 'vscode.zip' ./ && Remove-Item 'vscode.zip'
+Expand-Archive 'vscode.zip' .\ && Remove-Item 'vscode.zip'
 
 Write-Output '[script] complete'
